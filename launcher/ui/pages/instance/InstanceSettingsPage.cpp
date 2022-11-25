@@ -275,6 +275,10 @@ void InstanceSettingsPage::applySettings()
         m_settings->reset("JoinServerOnLaunchAddress");
     }
 
+    // Check for mod updates on launch
+    bool checkForModUpdatesOnLaunch = ui->updateModsOnLaunchBox->isChecked();
+    m_settings->set("UpdateModsOnLaunch", checkForModUpdatesOnLaunch);
+
     // FIXME: This should probably be called by a signal instead
     m_instance->updateRuntimeContext();
 }
@@ -372,6 +376,8 @@ void InstanceSettingsPage::loadSettings()
 
     ui->serverJoinGroupBox->setChecked(m_settings->get("JoinServerOnLaunch").toBool());
     ui->serverJoinAddress->setText(m_settings->get("JoinServerOnLaunchAddress").toString());
+
+    ui->updateModsOnLaunchBox->setChecked(m_settings->get("UpdateModsOnLaunch").toBool());
 }
 
 void InstanceSettingsPage::on_javaDetectBtn_clicked()

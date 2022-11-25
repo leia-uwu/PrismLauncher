@@ -596,6 +596,31 @@
         </widget>
        </item>
        <item>
+        <widget class="QGroupBox" name="resourceUpdatesGroupBox">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="title">
+          <string>Update external resources before launching the instance</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="checked">
+          <bool>false</bool>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_16">
+          <item>
+           <widget class="QCheckBox" name="updateModsOnLaunchBox">
+            <property name="text">
+             <string>Update mods</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        </item>
+       <item>
         <spacer name="verticalSpacerMiscellaneous">
          <property name="orientation">
           <enum>Qt::Vertical</enum>

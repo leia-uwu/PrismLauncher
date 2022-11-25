@@ -30,6 +30,7 @@
 #include "update/LibrariesTask.h"
 #include "update/FMLLibrariesTask.h"
 #include "update/AssetUpdateTask.h"
+#include "update/ModsUpdateTask.h"
 
 #include <meta/Index.h>
 #include <meta/Version.h>
@@ -70,6 +71,10 @@ void MinecraftUpdate::executeTask()
     // assets update
     {
         m_tasks.append(new AssetUpdateTask(m_inst));
+    }
+    // update mods
+    {
+        m_tasks.append(new ModsUpdateTask(m_inst));
     }
 
     if(!m_preFailure.isEmpty())
