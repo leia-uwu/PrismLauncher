@@ -188,9 +188,10 @@ void PageContainer::createUI()
     m_layout->addLayout(m_pageStack, 1, 1, 1, 1);
     m_layout->setColumnStretch(1, 4);
     m_layout->setContentsMargins(0, 0, 0, 0);
+    m_layout->setSpacing(0);
 
     m_buttonsLayout = new QGridLayout;
-    m_buttonsLayout->setContentsMargins(0, 0, 0, 6);
+    m_buttonsLayout->setContentsMargins(0, 6, 0, 6);
     m_layout->addLayout(m_buttonsLayout, 2, 1, 1, 2);
 
     setLayout(m_layout);
