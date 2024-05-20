@@ -87,7 +87,6 @@ class InstanceWindow : public QMainWindow, public BasePageContainer {
     InstancePtr m_instance;
     bool m_doNotSave = false;
     PageContainer* m_container = nullptr;
-    QPushButton* m_closeButton = nullptr;
     QToolButton* m_launchButton = nullptr;
     QPushButton* m_killButton = nullptr;
 };

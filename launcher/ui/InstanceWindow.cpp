@@ -43,6 +43,7 @@
 #include <QMessageBox>
 #include <QPushButton>
 #include <QScrollBar>
+#include <QDialogButtonBox>
 
 #include "ui/widgets/PageContainer.h"
 
@@ -78,10 +79,17 @@ InstanceWindow::InstanceWindow(InstancePtr instance, QWidget* parent) : QMainWin
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         horizontalLayout->setContentsMargins(6, -1, 6, -1);
 
-        auto btnHelp = new QPushButton(this);
-        btnHelp->setText(tr("Help"));
-        horizontalLayout->addWidget(btnHelp);
+        // use standard close and help buttons
+        auto buttons = new QDialogButtonBox(QDialogButtonBox::Help | QDialogButtonBox::Close);
+
+        auto closeBtn = buttons->button(QDialogButtonBox::Close);
+        auto btnHelp = buttons->button(QDialogButtonBox::Help);
+        closeBtn->setDefault(true);
+
         connect(btnHelp, &QPushButton::clicked, m_container, &PageContainer::help);
+        connect(closeBtn, &QPushButton::clicked, this, &QMainWindow::close);
+
+        horizontalLayout->addWidget(btnHelp);
 
         auto spacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
         horizontalLayout->addSpacerItem(spacer);
@@ -101,12 +109,9 @@ InstanceWindow::InstanceWindow(InstancePtr instance, QWidget* parent) : QMainWin
         horizontalLayout->addWidget(m_killButton);
         connect(m_killButton, &QPushButton::clicked, this, [this] { APPLICATION->kill(m_instance); });
 
-        updateButtons();
+        horizontalLayout->addWidget(closeBtn);
 
-        m_closeButton = new QPushButton(this);
-        m_closeButton->setText(tr("Close"));
-        horizontalLayout->addWidget(m_closeButton);
-        connect(m_closeButton, &QPushButton::clicked, this, &QMainWindow::close);
+        updateButtons();
 
         m_container->addButtons(horizontalLayout);
 
