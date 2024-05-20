@@ -184,10 +184,15 @@ void PageContainer::createUI()
 
     m_layout = new QGridLayout;
     m_layout->addLayout(headerHLayout, 0, 1, 1, 1);
-    m_layout->addWidget(m_pageList, 0, 0, 2, 1);
+    m_layout->addWidget(m_pageList, 0, 0, 3, 1);
     m_layout->addLayout(m_pageStack, 1, 1, 1, 1);
     m_layout->setColumnStretch(1, 4);
-    m_layout->setContentsMargins(0, 0, 0, 6);
+    m_layout->setContentsMargins(0, 0, 0, 0);
+
+    m_buttonsLayout = new QGridLayout;
+    m_buttonsLayout->setContentsMargins(0, 0, 0, 6);
+    m_layout->addLayout(m_buttonsLayout, 2, 1, 1, 2);
+
     setLayout(m_layout);
 }
 
@@ -202,12 +207,12 @@ void PageContainer::retranslate()
 
 void PageContainer::addButtons(QWidget* buttons)
 {
-    m_layout->addWidget(buttons, 2, 0, 1, 2);
+    m_buttonsLayout->addWidget(buttons);
 }
 
 void PageContainer::addButtons(QLayout* buttons)
 {
-    m_layout->addLayout(buttons, 2, 0, 1, 2);
+    m_buttonsLayout->addLayout(buttons, 0, 0, 0 ,0);
 }
 
 void PageContainer::showPage(int row)

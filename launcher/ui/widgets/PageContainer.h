@@ -111,4 +111,5 @@ class PageContainer : public QWidget, public BasePageContainer {
     QLabel* m_header;
     IconLabel* m_iconHeader;
     QGridLayout* m_layout;
+    QGridLayout* m_buttonsLayout;
 };
