@@ -44,13 +44,10 @@
       </item>
       <item>
        <layout class="QGridLayout" name="gridLayout_2">
-        <item row="0" column="1">
-         <widget class="QLineEdit" name="filterEdit"/>
-        </item>
         <item row="0" column="0">
-         <widget class="QLabel" name="filterLabel">
-          <property name="text">
-           <string>Filter:</string>
+         <widget class="QLineEdit" name="filterEdit">
+          <property name="placeholderText">
+           <string>Filter...</string>
           </property>
          </widget>
         </item>
